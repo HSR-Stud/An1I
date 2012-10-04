@@ -1,0 +1,222 @@
+\section{Differenzialrechnung}
+
+\subsection{Ableitung}
+
+$f$ sei eine reelle Funktion und $x$ ein Argument. Wenn der Grenzwert
+%
+\begin{displaymath}
+f'(x) = \lim_{\Delta x \to 0}\frac{f(x + \Delta x) - f(x)}{\Delta x}
+\end{displaymath}
+%
+im eigentlichen Sinne existiert, so heisst die Funktion $f$ an der Stelle $x$
+\textit{differenzierbar} und der Grenzwert heisst die \textit{Ableitung} von $f$ an der Stelle $x$.
+
+In physikalischen und technischen Anwendungen treten häufig Funktionen auf, in denen das Argument
+die Zeit $t$ bedeutet. In diesem Fall hat es sich eingebürgert, die Ableitung mit einen über das
+Funktionssymbol geschriebenen Punkt zu bezeichnen, also
+%
+\begin{displaymath}
+	\dot{f}(t) \textrm{ statt } f'(t)
+\end{displaymath}
+
+
+\subsection{Wichtige Ableitungsfunktionen}
+
+\renewcommand{\arraystretch}{1.8}
+\begin{longtable}{ll}
+\hline
+\textbf{Funktion} & \textbf{Ableitungsfunktion} \\\hline\endhead
+$x \mapsto 1$ & $x \mapsto 0$ \\
+$id := x \mapsto x$ & $x \mapsto 1$ \\
+$sqr := x \mapsto x^2$ & $x \mapsto 2x$ \\
+$rez := x \mapsto \frac{1}{x}$ & $x \mapsto -\frac{1}{x^2}$ \\
+$sqrt := x \mapsto \sqrt{x}$ & $x \mapsto \frac{1}{2\sqrt{x}}$ \\
+$x \mapsto x^n$ & $x \mapsto nx^{n-1}$ \\
+$x \mapsto e^x$ & $x \mapsto e^x$ \\
+$x \mapsto e^{-x}$ & $x \mapsto -e^{-x}$ \\
+$x \mapsto a^x$ & $x \mapsto \ln(a) \cdot a^x$ \\
+$\ln$ & $x \mapsto \frac{1}{x} \textrm{ für } x > 0$ \\
+$\log_b(x)$ & $\frac{1}{\ln(b) \cdot x}$ \\
+$\sin$ & $\cos$ \\
+$\cos$ & $-\sin$ \\
+$\tan$ & $1 + \tan^2 = \frac{1}{\cos^2}$ \\
+$\arcsin$ & $\frac{1}{\sqrt{1 - x^2}}$ \\
+$\arccos$ & $-\frac{1}{\sqrt{1 - x^2}}$ \\
+$\arctan$ & $\frac{1}{1 + x^2}$ \\
+\end{longtable}
+
+\subsection{Linearitätsregeln für die Ableitung}
+
+$f$ und $g$ seien differenzierbare Funktionen und $c$ eine Konstante. Dann gelten
+diese beiden sogenannte \textit{Linearitätsregeln}
+\begin{align*}
+	(f + g)'& = f' + g' \\
+	(c \cdot f)'& = c \cdot f'
+\end{align*}
+
+Wenn die Funktionen durch Terme $S$ und $T$ definiert sind, so kann man die Regeln auch auf die
+Terme übertragen:
+\begin{align*}
+	\frac{d}{dx}(S + T)& = \frac{dS}{dx} + \frac{dT}{dx} \\
+	\frac{d}{dx}(c \cdot T)& = c \cdot \frac{dT}{dx}
+\end{align*}
+
+
+\subsection{Produkt- und Quotientenregel für Ableitungen}
+
+$f$ und $g$ seien differenzierbare Funktionen. Dann ist
+\begin{align*}
+	(f \cdot g)'& = f' \cdot g + f \cdot g' \\
+	\left(\frac{f}{g}\right)'& = \frac{f' \cdot g - f \cdot g'}{g^2}
+\end{align*}
+
+Wenn die Funktionen mit Hilfe von Zuordnungstermen $S$ und $T$ definiert sind, so lassen sich diese
+Regeln auf die Terme übertragen.
+\begin{align*}
+	\frac{d}{dx}(S \cdot T)& = \left(\frac{dS}{dx}\right)T + S\left(\frac{dT}{dx}\right) \\
+	\frac{d}{dx}\left(\frac{S}{T}\right)& = \frac{\left(\frac{dS}{dx}\right)T - S\left(\frac{dT}{dx}\right)}{T^2}
+\end{align*}
+
+
+\subsection{Kettenregel für Ableitungen}
+
+$f$ und $g$ seien differenzierbare Funktionen. Dann ist die Ableitung ihrer Verkettung an der Stelle
+$x$ gegeben durch
+%
+\begin{displaymath}
+	(f \circ g)'(x) = f'(g(x))g'(x)
+\end{displaymath}
+%
+oder in der Termschreibweise
+%
+\begin{displaymath}
+	\frac{d}{dx}f(g(x)) = f'(g(x)) \cdot \frac{d}{dx}g(x)
+\end{displaymath}
+%
+Wenn wir beachten, dass $f'(g(x)) = (f' \circ g)(x)$ ist, bekommen wir für die Ableitungsfunktion
+%
+\begin{displaymath}
+	(f \circ g)' = (f' \circ g) \cdot g'
+\end{displaymath}
+
+
+\subsection{Kurvendiskussion}
+
+Ableitungen helfen, wichtige Eigenschaften über Funktionen zu ermitteln. Unter der Voraussetzung,
+dass $f$ im Intervall $(a, b)$ differenzierbar ist, gelten die folgenden Aussagen:
+
+\begin{tabular}{|lcl|}
+\hline
+$f'(x) > 0$ für alle $x \in (a,b)$ & $\Rightarrow$ & $f$ ist im Intervall $(a,b)$ streng monoton wachsend \\
+$f'(x) \geq 0$ für alle $x \in (a,b)$ & $\Leftarrow$ & $f$ ist im Intervall $(a,b)$ schwach monoton wachsend \\
+\hline
+$f'(x) < 0$ für alle $x \in (a,b)$ & $\Rightarrow$ & $f$ ist im Intervall $(a,b)$ streng monoton fallend \\
+$f'(x) \leq 0$ für alle $x \in (a,b)$ & $\Leftarrow$ & $f$ ist im Intervall $(a,b)$ streng monoton fallend \\
+\hline
+$f'(x) = 0$ & $\Leftarrow$ & $f$ hat im Punkt $x \in (a,b)$ ein (lokales oder\\&&globales) Maximum oder ein (lokales oder globales) Minimum \\
+\hline
+$f'(x) = 0$ und $f''(x) < 0$ & $\Rightarrow$ & $f$ hat im Punkt $x \in (a,b)$ ein (lokales oder globales) Maximum \\
+$f'(x) = 0$ und $f''(x) > 0$ & $\Rightarrow$ & $f$ hat im Punkt $x \in (a,b)$ ein (lokales oder globales) Minimum \\
+\hline
+\end{tabular} 
+
+\subsection{Linearisierungsformel}
+
+$f$ sei eine an der Stelle $x_0$ differenzierbare Funktion. Dann ist der Graph der Funktion
+%
+\begin{displaymath}
+	T := x \mapsto f'(x_0)(x-x_0) + f(x_0)
+\end{displaymath}
+%
+die Tangente an den Graphen von $f$ im Punkt $(x_0, f(x_0))$.
+
+Der Ausdruck $x - x_0$ kann auch als $\Delta x$ geschrieben werden.
+
+
+\subsection{Algorithmus von Newton}
+
+Wir betrachten die Gleichung
+%
+\begin{displaymath}
+f(x) = 0
+\end{displaymath}
+%
+$x_0$ sei eine Schätzung für die exakte Lösung $x^*$. Die Funktion $f$ sei zwischen $x_0$ und $x^*$
+differenzierbar.
+
+Dann strebt die durch die Vorschrift
+%
+\begin{displaymath}
+	x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+\end{displaymath}
+%
+konstruierte Folge unter gewissen, hier nicht näher präzisierten Bedingungen gegen die exakte Lösung
+$x^*$.
+
+
+\subsection{Regel von Bernoulli-l'Hôpital}
+
+$f$ und $g$ seien differenzierbare Funktionen. Dann gelten folgende Regeln:
+
+\begin{itemize}
+	\item Wenn \[\lim_{x \to x_0}f(x) = \lim_{x \to x_0}g(x) = 0\]
+	oder \[\lim_{x \to x_0}f(x) = \pm \infty \wedge \lim_{x \to x_0}g(x) = \pm \infty\]
+	dann \[\lim_{x \to x_0}\left(\frac{f(x)}{g(x)}\right) = \lim_{x \to x_0}\left(\frac{f'(x)}{g'(x)}\right)\]
+	\item Wenn \[\lim_{x \to \infty}f(x) = \lim_{x \to \infty}g(x) = 0\]
+	oder \[\lim_{x \to \infty}f(x) = \pm \infty \wedge \lim_{x \to \infty}g(x) = \pm \infty\]
+	dann \[\lim_{x \to \infty}\left(\frac{f(x)}{g(x)}\right) = \lim_{x \to \infty}\left(\frac{f'(x)}{g'(x)}\right)\]
+	\item Wenn \[\lim_{x \to -\infty}f(x) = \lim_{x \to -\infty}g(x) = 0\]
+	oder \[\lim_{x \to -\infty}f(x) = \pm \infty \wedge \lim_{x \to -\infty}g(x) = \pm \infty\]
+	dann \[\lim_{x \to -\infty}\left(\frac{f(x)}{g(x)}\right) = \lim_{x \to -\infty}\left(\frac{f'(x)}{g'(x)}\right)\]
+\end{itemize}
+oder kurz und unpräzis:
+
+Man darf bei Grenzwerten den Zähler und den Nenner ableiten, wenn entweder beide nach $0$ oder beide
+nach $\pm \infty$ gehen.
+
+
+\subsection{Taylor-Polynom}
+
+Die Funktion $f$ sei an der Stelle $x_0$ mindestens $(n + 1)$-mal differenzierbar. Dann gilt
+%
+\begin{displaymath}
+	f(x) = c_0 + c_1(x-x_0) + c_2(x-x_0)^2 + ... + c_n(x-x_0)^n + R_n(x)
+\end{displaymath}
+%
+oder mit dem $\sum$-Zeichen geschrieben
+%
+\begin{displaymath}
+	f(x) = \left(\sum_{k=0}^n c_k(x-x_0)^k\right) + R_n(x)
+\end{displaymath}
+%
+Dabei gilt
+%
+\begin{displaymath}
+	c_k = \frac{f^kx_0}{k!}\textrm{ für }k=0...n
+\end{displaymath}
+%
+Das Polynom $c_0 + c_1(x-x_0)+...+c_n(x-x_0)^n$ heisst \textit{Taxlor-Polynom}.
+
+Das sogenannte \textit{Restglied} beträgt
+%
+\begin{displaymath}
+	R_n(x) = \frac{f^{(n+1)}\xi}{(n+1)!}(x-x_0)^{n+1}
+\end{displaymath}
+%
+für ein gewisses $\xi$ zwischen $x_0$ und $x$.
+
+
+\subsection{Konvergenz von Taylorreihen}
+
+Die Funktion $f$ sei bei $x_0$ beliebig oft differenzierbar. Dann konvergiert die an der Stelle
+$x_0$ konstruierte Taylorreihe entweder überall, oder dann in einem Intervall mit den Grenzen
+$x_0 - r$ und $x_0 + r$, gegen $f(x_0)$. Ob das Intervall offen oder geschlossen ist, kann nicht
+allgemein gesagt werden. $r$ heisst der \textit{Konvergenzradius} der Taylorreihe.
+
+Die an der Stelle $1$ konstruierte Taylorreihe der Funktion $ln$ hat den Konvergenzradius $1$. Sie
+konvergiert bei $1 + 1 = 2$ gerade noch. Bei $1 - 1 = 0$ kann sie nicht konvergieren, da hier der
+Funktionswert nicht existiert. Die Taylorreihekonvergiert also im Intervall
+%
+\begin{displaymath}
+(0;2]
+\end{displaymath}
