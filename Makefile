@@ -1,3 +1,4 @@
+SHELL=bash
 TARGET=An1I.pdf
 LL=latexmk -pdf
 CLEAN=latexmk -C
